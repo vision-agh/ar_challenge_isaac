@@ -1,0 +1,23 @@
+{
+    "name": "Existing Dockerfile",
+    "build": {
+        "context": "..",
+        "dockerfile": "../Dockerfile"
+    },
+   "runArgs": [
+        "--gpus", "all",
+        "-e", "ACCEPT_EULA=Y",
+        "--rm",
+        "--network=host",
+        "-e", "PRIVACY_CONSENT=Y",
+        "-v", "/home/power-station/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw",
+        "-v", "/home/power-station/docker/isaac-sim/cache/ov:/root/.cache/ov:rw",
+        "-v", "/home/power-station/docker/isaac-sim/cache/pip:/root/.cache/pip:rw",
+        "-v", "/home/power-station/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw",
+        "-v", "/home/power-station/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw",
+        "-v", "/home/power-station/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw",
+        "-v", "/home/power-station/docker/isaac-sim/data:/root/.local/share/ov/data:rw",
+        "-v", "/home/power-station/docker/isaac-sim/documents:/root/Documents:rw",
+        "--name", "isaac-sim-drone"
+    ]
+}
