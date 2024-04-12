@@ -72,9 +72,37 @@ class PegasusApp:
 
         # Add 
         add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate1")
-        self.world.scene.add(XFormPrim(prim_path="/World/Gate1", name="Gate1", position=[0,-10,0.5], scale=[0.005, 0.005, 0.005], orientation=[0,0,0.70711,0.70711]))
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate2")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate3")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate4")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate5")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate6")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate7")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate8")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate9")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate10")
 
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate1", name="Gate1", position=[0,-7,0.5], scale=[0.005, 0.005, 0.005], orientation=[0.5,0.5,0.5,0.5]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate2", name="Gate2", position=[2.5,-5,1], scale=[0.005, 0.005, 0.005], orientation=[0.27076,0.27076,0.65322,0.65322]))
+
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate3", name="Gate3", position=[5, 0,1.5], scale=[0.005, 0.005, 0.005], orientation=[0,0,-0.70711,-0.70711]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate4", name="Gate4", position=[5, 5,2], scale=[0.005, 0.005, 0.005], orientation=[0,0,-0.70711,-0.70711]))
+
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate5", name="Gate5", position=[2.5,11,2.5], scale=[0.005, 0.005, 0.005], orientation=[0.33197,0.32102,-0.63004,-0.62434]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate6", name="Gate6", position=[0,14,2], scale=[0.005, 0.005, 0.005], orientation=[0.5,0.5,-0.5,-0.5]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate7", name="Gate7", position=[-4,11,1.5], scale=[0.005, 0.005, 0.005], orientation=[0.65328,0.65328,-0.2706,-0.2706]))
+
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate8", name="Gate8", position=[-5,5,1], scale=[0.005, 0.005, 0.005], orientation=[0.70711,0.70711,0,0]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate9", name="Gate9", position=[-5,0,0.5], scale=[0.005, 0.005, 0.005], orientation=[0.70711,0.70711,0,0]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate10", name="Gate10", position=[-2.5,-5,0], scale=[0.005, 0.005, 0.005], orientation=[0.6532,0.6532,0.2706,0.2706]))      
         # Get the current directory used to read trajectories and save results
+
+        # Turn on the light [ToDo]
+        # stage = omni.usd.get_context().get_stage()
+        # prim = stage.GetPrimAtPath("/World/layout/SM_LampCeilingA_43/RectLight")
+        # visibility_attribute = prim.GetAttribute("visibility")
+        # visibility_attribute.Set("inherited")
+
         self.curr_dir = str(Path(os.path.dirname(os.path.realpath(__file__))).resolve())
 
         # Create the drone with PX4-Autopilot control (ID0)
@@ -107,7 +135,7 @@ class PegasusApp:
             "/World/quadrotor",
             ROBOTS['Iris'],
             0,
-            [5.0, -10.0, 0.0],
+            [5.0, -8.0, 0.0],
             Rotation.from_euler("XYZ", [0.0, 0.0, 0.0], degrees=True).as_quat(),
             config=config_multirotor,
         )
@@ -115,7 +143,7 @@ class PegasusApp:
         # Set the camera to a nice position
         # First argument - camera position
         # 2nd argument - target that the camera should point 
-        self.pg.set_viewport_camera([5, -12, 0.5], [5.0, -10.0, 0.5])
+        self.pg.set_viewport_camera([8, -8, 0.1], [5.0, -8.0, 0.5])
 
         self.world.reset()
 
