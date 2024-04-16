@@ -72,16 +72,16 @@ class PegasusApp:
         self.pg.load_environment(SIMULATION_ENVIRONMENTS["Warehouse with Shelves"])
 
         # Add 
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate1")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate2")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate3")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate4")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate5")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate6")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate7")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate8")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate9")
-        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate.usd", prim_path="/World/Gate10")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate10.usd", prim_path="/World/Gate1")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate45.usd", prim_path="/World/Gate2")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate12.usd", prim_path="/World/Gate3")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate57.usd", prim_path="/World/Gate4")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate26.usd", prim_path="/World/Gate5")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate10.usd", prim_path="/World/Gate6")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate45.usd", prim_path="/World/Gate7")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate12.usd", prim_path="/World/Gate8")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate57.usd", prim_path="/World/Gate9")
+        add_reference_to_stage(usd_path="/workspaces/ar_challenge_isaac/Gate26.usd", prim_path="/World/Gate10")
 
         self.world.scene.add(XFormPrim(prim_path="/World/Gate1", name="Gate1", position=[0,-7,0.5], scale=[0.005, 0.005, 0.005], orientation=[0.5,0.5,0.5,0.5]))
         self.world.scene.add(XFormPrim(prim_path="/World/Gate2", name="Gate2", position=[2.5,-5,1], scale=[0.005, 0.005, 0.005], orientation=[0.27076,0.27076,0.65322,0.65322]))
@@ -96,14 +96,8 @@ class PegasusApp:
         self.world.scene.add(XFormPrim(prim_path="/World/Gate8", name="Gate8", position=[-5,5,1], scale=[0.005, 0.005, 0.005], orientation=[0.70711,0.70711,0,0]))
         self.world.scene.add(XFormPrim(prim_path="/World/Gate9", name="Gate9", position=[-5,0,0.5], scale=[0.005, 0.005, 0.005], orientation=[0.70711,0.70711,0,0]))
         self.world.scene.add(XFormPrim(prim_path="/World/Gate10", name="Gate10", position=[-2.5,-5,0], scale=[0.005, 0.005, 0.005], orientation=[0.6532,0.6532,0.2706,0.2706]))      
+
         # Get the current directory used to read trajectories and save results
-
-        # Turn on the light [ToDo]
-        # stage = stage_utils.get_current_stage()
-        # prim = stage.GetPrimAtPath("/World/layout/SM_LampCeilingA_43")
-        # visibility_attribute = prim.GetAttribute("visibility")
-        # visibility_attribute.Set("inherited")
-
         self.curr_dir = str(Path(os.path.dirname(os.path.realpath(__file__))).resolve())
 
         # Create the drone with PX4-Autopilot control (ID0)
