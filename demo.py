@@ -25,6 +25,7 @@ from pegasus.simulator.logic.vehicles.multirotor import Multirotor, MultirotorCo
 from pegasus.simulator.logic.interface.pegasus_interface import PegasusInterface
 from pegasus.simulator.logic.backends.mavlink_backend import MavlinkBackend, MavlinkBackendConfig
 from omni.isaac.core.utils.stage import add_reference_to_stage
+import omni.isaac.core.utils.stage as stage_utils
 from omni.isaac.core.prims import XFormPrim
 
 # Auxiliary scipy and numpy modules
@@ -34,7 +35,7 @@ from pathlib import Path
 
 import os
 os.environ["ROS_DISTRO"] = "humble"
-os.environ["ROS_DOMAIN_ID"] = "0"
+os.environ["ROS_DOMAIN_ID"] = "1"
 from pegasus.simulator.logic.backends.ros2_backend import ROS2Backend
 
 PX4_PATH = "~/PX4-Autopilot"
@@ -86,9 +87,9 @@ class PegasusApp:
         self.world.scene.add(XFormPrim(prim_path="/World/Gate2", name="Gate2", position=[2.5,-5,1], scale=[0.005, 0.005, 0.005], orientation=[0.27076,0.27076,0.65322,0.65322]))
 
         self.world.scene.add(XFormPrim(prim_path="/World/Gate3", name="Gate3", position=[5, 0,1.5], scale=[0.005, 0.005, 0.005], orientation=[0,0,-0.70711,-0.70711]))
-        self.world.scene.add(XFormPrim(prim_path="/World/Gate4", name="Gate4", position=[5, 5,2], scale=[0.005, 0.005, 0.005], orientation=[0,0,-0.70711,-0.70711]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate4", name="Gate4", position=[5, 7,2], scale=[0.005, 0.005, 0.005], orientation=[0,0,-0.70711,-0.70711]))
 
-        self.world.scene.add(XFormPrim(prim_path="/World/Gate5", name="Gate5", position=[2.5,11,2.5], scale=[0.005, 0.005, 0.005], orientation=[0.33197,0.32102,-0.63004,-0.62434]))
+        self.world.scene.add(XFormPrim(prim_path="/World/Gate5", name="Gate5", position=[3,12,2.5], scale=[0.005, 0.005, 0.005], orientation=[0.33197,0.32102,-0.63004,-0.62434]))
         self.world.scene.add(XFormPrim(prim_path="/World/Gate6", name="Gate6", position=[0,14,2], scale=[0.005, 0.005, 0.005], orientation=[0.5,0.5,-0.5,-0.5]))
         self.world.scene.add(XFormPrim(prim_path="/World/Gate7", name="Gate7", position=[-4,11,1.5], scale=[0.005, 0.005, 0.005], orientation=[0.65328,0.65328,-0.2706,-0.2706]))
 
@@ -98,8 +99,8 @@ class PegasusApp:
         # Get the current directory used to read trajectories and save results
 
         # Turn on the light [ToDo]
-        # stage = omni.usd.get_context().get_stage()
-        # prim = stage.GetPrimAtPath("/World/layout/SM_LampCeilingA_43/RectLight")
+        # stage = stage_utils.get_current_stage()
+        # prim = stage.GetPrimAtPath("/World/layout/SM_LampCeilingA_43")
         # visibility_attribute = prim.GetAttribute("visibility")
         # visibility_attribute.Set("inherited")
 
@@ -119,8 +120,8 @@ class PegasusApp:
         camera = RGBCamera(
             id=0, 
             config={
-                "position": [0.0, 0.0, 0.0], 
-                "rotation": [0.0, 0.0, 0.0, 1.0],
+                "position": [5.0, -8.0, 0.0], 
+                "rotation": [0.0, 0.0, 0.0, 0.0],
                 "focal_length": 250.0,
                 "resolution": [640, 480],
                 "update_rate": 30.0
