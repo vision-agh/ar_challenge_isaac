@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pegasus-simulator
+Version: 1.0.0
+Summary: Extension providing the main framework interfaces for simulating aerial vehicles using PX4, Python or ROS 2 as a backend
+Home-page: 
+Author: Marcelo Jacinto
+Maintainer: Marcelo Jacinto
+Maintainer-email: marcelo.jacinto@tecnico.ulisboa.pt
+License: BSD-3-Clause
+Keywords: drone,quadrotor,multirotor,UAV,px4,sitl,robotics
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
