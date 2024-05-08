@@ -12,13 +12,11 @@ rosdep init
 rosdep update
 
 # Install Pegasus Simulator
-git clone https://github.com/PegasusSimulator/PegasusSimulator.git
-cd ./PegasusSimulator/
-git checkout dev_camera
-cp /workspaces/ar_challenge_isaac/update_repos/setup.py /workspaces/ar_challenge_isaac/PegasusSimulator/extensions/pegasus.simulator/setup.py
-cd ./extensions
+cd ./PegasusSimulator/extensions
 /isaac-sim/python.sh -m pip install --editable pegasus.simulator
+cd /workspaces/ar_challenge_isaac
 
+# Install foonathan_memory_vendor
 git clone https://github.com/eProsima/foonathan_memory_vendor.git
 cd foonathan_memory_vendor
 mkdir build && cd build
